@@ -27,6 +27,11 @@ describe('Bank Account', function() {
       assert.equal(bankAccount.totalMoney, 100);
     });
 
+    it('saves the date of the transaction', function() {
+      bankAccount.deposit(100);
+      
+    });
+
   });
 
 });
