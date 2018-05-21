@@ -30,8 +30,6 @@ describe('Transaction', function() {
       account.deposit(80);
       account.withdraw(50);
       assert.equal(transaction.code.type, "withdraw");
-
     });
-
   });
 });
