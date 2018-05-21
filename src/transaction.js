@@ -1,7 +1,5 @@
 (function(exports) {
   const dateFormat = require('dateformat');
-  var now = new Date();
-  console.log(dateFormat(now, "dd/mm/yyyy"));
 
   let transaction = function() {
     this.current = 0;

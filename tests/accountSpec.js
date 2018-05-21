@@ -1,5 +1,5 @@
 const assert = require('assert');
-let bankAccount = require('../src/account.js');
+const bankAccounts = require('../src/account.js');
 
 describe('Test', function() {
   it('will test that the framework is setup', function() {
@@ -8,8 +8,8 @@ describe('Test', function() {
 });
 
 describe('Bank Account', function() {
-  before(function() {
-    bankAccount = new bankAccount.bankAccount();
+  beforeEach(function() {
+    bankAccount = new bankAccounts.bankAccount();
   });
 
   describe("Bank Account on Initialization of App", function() {
@@ -26,12 +26,14 @@ describe('Bank Account', function() {
       bankAccount.deposit(100);
       assert.equal(bankAccount.totalMoney, 100);
     });
+  });
 
-    it('saves the date of the transaction', function() {
+  describe("Withdrawing money from the bank account", function() {
+    it("Allows the user to withdraw money from their bank account", function() {
       bankAccount.deposit(100);
-      
+      bankAccount.withdraw(50);
+      assert.equal(bankAccount.totalMoney, 50);
     });
-
   });
 
 });
