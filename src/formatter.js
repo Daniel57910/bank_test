@@ -5,7 +5,6 @@
   };
 
   formatter.prototype.format = function (date, type, transaction, balance) {
-    console.log("HELLO");
     if (type === "deposit") {
       this.formatted = date + " || " + transaction + " || || " + balance;
     }

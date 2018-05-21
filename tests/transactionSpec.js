@@ -12,24 +12,11 @@ describe('Transaction', function() {
      assert.equal(transaction.code.date, "21/05/2018");
    });
 
-  describe('withdrawing money', function() {
-    it ('returns the deposited/ money as an argument', function() {
+   describe("depositing money and receiving the last transaction", function() {
+     it("returns the most recent transaction that is in correct string format", function() {
       account.deposit(100);
-      assert.equal(transaction.code.current, 100);
-    });
+      assert.equal(transaction.code.formatter.formatted, "21/05/2018 || 100 || || 100");
+     });
 
-    it('stores the type of transaction in string format', function() {
-      account.deposit(100);
-      assert.equal(transaction.code.type, "deposit");
-    });
-
-  });
-
-  describe('withdrawing money', function() {
-    it('confirms that a withdrawal has occured in string format', function() {
-      account.deposit(80);
-      account.withdraw(50);
-      assert.equal(transaction.code.type, "withdraw");
-    });
-  });
+   });
 });

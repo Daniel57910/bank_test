@@ -15,3 +15,5 @@ As a user I want to see the date of my deposit or withdrawal.
 As a user I want to see all deposits and withdrawals in reverse chronological order.
 As a user I want to see my deposits and withdrawals pretty printed.
 
+
+let acc = require("./src/account.js")
