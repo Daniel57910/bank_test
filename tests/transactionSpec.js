@@ -18,5 +18,13 @@ describe('Transaction', function() {
       assert.equal(transaction.code.formatter.formatted, "21/05/2018 || 100 || || 100");
      });
 
+    describe("withdrawing money and receiving the last transaction", function() {
+      it("returns a withdrawal transaction in the correct string format", function() {
+        account.deposit(100);
+        account.withdraw(50);
+        assert.equal(transaction.code.formatter.formatted, "21/05/2018 || || 50 || 50");
+      });
+    });
+
    });
 });
