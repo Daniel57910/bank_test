@@ -11,7 +11,7 @@
 
   bankAccount.prototype.deposit = function(money) {
     this.totalMoney+= money;
-    transaction.code.deposit(this.totalMoney);
+    transaction.code.deposit(this.totalMoney, money);
   };
 
   exports.bankAccount = bankAccount;

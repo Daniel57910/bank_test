@@ -12,5 +12,10 @@ describe('Transaction', function() {
       account.deposit(100);
       assert.equal(transaction.code.current, 100);
     });
+
+    it ("prints the current date of the transaction", function() {
+      account.deposit(100);
+      assert.equal(transaction.code.date, "21/05/2018");
+    });
   });
 });
