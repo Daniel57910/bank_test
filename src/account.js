@@ -10,6 +10,7 @@
   bankAccount.prototype.deposit = function (money) {
     this.totalMoney += money;
     transaction.code.process(this.totalMoney, money, "deposit");
+    this.history.push(transaction.code.formatter.formatted);
   };
 
   bankAccount.prototype.withdraw = function (money) {

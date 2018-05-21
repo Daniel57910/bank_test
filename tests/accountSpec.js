@@ -26,6 +26,11 @@ describe('Bank Account', function() {
       bankAccount.deposit(100);
       assert.equal(bankAccount.totalMoney, 100);
     });
+
+    it("Adds a successful transaction to the array", function() {
+      bankAccount.deposit(100);
+      assert.equal(bankAccount.history[0], "21/05/2018 || 100 || || 100");
+    });
   });
 
   describe("Withdrawing money from the bank account", function() {

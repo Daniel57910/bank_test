@@ -25,6 +25,6 @@ describe('Transaction', function() {
         assert.equal(transaction.code.formatter.formatted, "21/05/2018 || || 50 || 50");
       });
     });
-
    });
+   
 });
