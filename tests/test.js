@@ -10,7 +10,12 @@ describe('Test', function() {
 describe('Bank Account', function() {
   beforeEach(function() {
     bankAccount = new bankAccount.bankAccount();
-    console.log(bankAccount.totalMoney);
+  });
+
+  describe("Bank Account on Initialization of App", function() {
+    it('should have the totalMoney set to 0 on initialization', function() {
+      assert.equal(bankAccount.totalMoney, 0);
+    });
   });
 
 });
