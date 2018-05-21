@@ -1,20 +1,20 @@
-(function(exports) {
+(function (exports) {
 
   let transaction = require('./transaction.js');
-  
-  let bankAccount = function() {
+
+  let bankAccount = function () {
     this.totalMoney = 0;
     this.history = [];
   };
 
-  bankAccount.prototype.deposit = function(money) {
+  bankAccount.prototype.deposit = function (money) {
     this.totalMoney += money;
-    transaction.code.deposit(this.totalMoney, money);
+    transaction.code.process(this.totalMoney, money, "deposit");
   };
 
-  bankAccount.prototype.withdraw = function(money) {
+  bankAccount.prototype.withdraw = function (money) {
     this.totalMoney -= money;
-    console.log(this.totalMoney);
+    transaction.code.process(this.totalMoney, money, "withdraw");
   };
 
   exports.bankAccount = bankAccount;

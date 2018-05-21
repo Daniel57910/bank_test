@@ -2,13 +2,13 @@
   const dateFormat = require('dateformat');
 
   let transaction = function() {
-    this.current = 0;
     this.date = dateFormat(new Date(), "dd/mm/yyyy");
   };
 
-  transaction.prototype.deposit = function(current, transaction) {
+  transaction.prototype.process = function(current, transaction, type) {
     this.current = current;
     this.transaction = transaction;
+    this.type = type;
   };
 
   exports.code = new transaction();

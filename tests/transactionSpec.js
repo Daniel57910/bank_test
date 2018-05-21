@@ -1,21 +1,37 @@
 const assert = require('assert');
 let transaction = require('../src/transaction.js');
-let account = require('../src/account.js');
+const accounts = require('../src/account.js');
 
 describe('Transaction', function() {
-   before(function () {
-     account = new account.bankAccount();
+   beforeEach(function () {
+     account = new accounts.bankAccount();
    });
 
-  describe('Depositing money into the bank account', function() {
-    it ('returns the deposited money as an argument', function() {
+   it("prints the current date of the transaction", function () {
+     account.deposit(100);
+     assert.equal(transaction.code.date, "21/05/2018");
+   });
+
+  describe('withdrawing money', function() {
+    it ('returns the deposited/ money as an argument', function() {
       account.deposit(100);
       assert.equal(transaction.code.current, 100);
     });
 
-    it ("prints the current date of the transaction", function() {
+    it('stores the type of transaction in string format', function() {
       account.deposit(100);
-      assert.equal(transaction.code.date, "21/05/2018");
+      assert.equal(transaction.code.type, "deposit");
     });
+
+  });
+
+  describe('withdrawing money', function() {
+    it('confirms that a withdrawal has occured in string format', function() {
+      account.deposit(80);
+      account.withdraw(50);
+      assert.equal(transaction.code.type, "withdraw");
+
+    });
+
   });
 });
