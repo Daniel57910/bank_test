@@ -1,5 +1,8 @@
 const assert = require('assert');
 const bankAccounts = require('../src/account.js');
+const dateFormat = require('dateformat');
+const date = dateFormat(new Date(), "dd/mm/yyyy");
+
 
 describe('Test', function() {
   it('will test that the framework is setup', function() {
@@ -29,7 +32,7 @@ describe('Bank Account', function() {
 
     it("Adds a successful transaction to the array", function() {
       bankAccount.deposit(100);
-      assert.equal(bankAccount.history[0], "21/05/2018 || 100 || || 100");
+      assert.equal(bankAccount.history[0], date + " || 100 || || 100");
     });
   });
 

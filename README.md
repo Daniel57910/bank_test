@@ -17,3 +17,12 @@ As a user I want to see my deposits and withdrawals pretty printed.
 
 
 let acc = require("./src/account.js")
+acc = new acc.bankAccount()
+acc.deposit(1000)
+acc.deposit(699)
+acc.withdraw(500)
+acc.withdraw(200)
+acc.deposit(800)
+acc.totalMoney
+acc.history
+acc.printTransactions()

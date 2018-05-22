@@ -1,8 +1,18 @@
 (function(exports) {
 
-  printer = function() {
-    this.header = "date || credit || debit || balance";
+  let printer = function() {};
+
+  printer.prototype.printStatement = function(history) {
+    header = "date || credit || debit || balance";
+    console.log(header);
+    printHistory(history);
   };
 
+  function printHistory(history) {
+    for (i = history.length - 1; i >= 0; i--) {
+      console.log(history[i]);
+    }
+  }
   exports.printer = new printer();
+
 })(this);
