@@ -1,8 +1,9 @@
 const assert = require('assert');
 const expect = require('chai').expect;
-const bankAccounts = require('../src/account.js');
 const dateFormat = require('dateformat');
 const date = dateFormat(new Date(), "dd/mm/yyyy");
+
+const bankAccounts = require('../src/account.js');
 
 
 describe('Test', function() {
