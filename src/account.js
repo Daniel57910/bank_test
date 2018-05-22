@@ -1,6 +1,6 @@
 (function (exports) {
 
-  let transaction = require('./transaction.js');
+  let transactionHandler = require('./transaction.js');
   let printer = require('./printer.js');
   printer = printer.printer;
 
@@ -11,14 +11,14 @@
 
   bankAccount.prototype.deposit = function (money) {
     this.totalMoney += money;
-    transaction.code.process(this.totalMoney, money, "deposit");
-    this.history.push(transaction.code.formatter.formatted);
+    transactionHandler.transaction.process(this.totalMoney, money, "deposit");
+    this.history.push(transactionHandler.transaction.formatter.formatted);
   };
 
   bankAccount.prototype.withdraw = function (money) {
     this.totalMoney -= money;
-    transaction.code.process(this.totalMoney, money, "withdraw");
-    this.history.push(transaction.code.formatter.formatted);
+    transactionHandler.transaction.process(this.totalMoney, money, "withdraw");
+    this.history.push(transactionHandler.transaction.formatter.formatted);
   };
 
   bankAccount.prototype.printTransactions = function() {

@@ -12,6 +12,6 @@
     this.lastTransaction = this.formatter.format(this.date, type, transaction, balance); 
   };
 
-  exports.code = new transaction();
+  exports.transaction = new transaction();
 
 })(this);
