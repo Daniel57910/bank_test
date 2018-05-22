@@ -17,14 +17,14 @@ describe('Transaction', function() {
    describe("depositing money and receiving the last transaction", function() {
      it("returns the most recent transaction that is in correct string format", function() {
       testAccount.deposit(100);
-      assert.equal(transactionHandler.transaction.formatter.formatted, date + " || 100 || || 100");
+      assert.equal(transactionHandler.transaction.formatter.formatted, date + " || 100.00 || || 100.00");
      });
 
     describe("withdrawing money and receiving the last transaction", function() {
       it("returns a withdrawal transaction in the correct string format", function() {
         testAccount.deposit(100);
         testAccount.withdraw(50);
-        assert.equal(transactionHandler.transaction.formatter.formatted, date + " || || 50 || 50");
+        assert.equal(transactionHandler.transaction.formatter.formatted, date + " || || 50.00 || 50.00");
       });
     });
    });

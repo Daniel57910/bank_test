@@ -9,7 +9,7 @@
   };
 
   transaction.prototype.process = function(balance, transaction, type) {
-    this.lastTransaction = this.formatter.format(this.date, type, transaction, balance); 
+    this.lastTransaction = this.formatter.format(this.date, type, Number(transaction).toFixed(2), Number(balance).toFixed(2)); 
   };
 
   exports.transaction = new transaction();
