@@ -13,15 +13,10 @@
     return balance;
   };
 
-  bankAccount.prototype.history = function() {
-    return history;
-  };
-
   bankAccount.prototype.deposit = function (money) {
     balance += money;
     transactionHandler.transaction.process(balance, money, "deposit");
     history.push(transactionHandler.transaction.formatter.formatted);
-    return balance;
   };
 
   bankAccount.prototype.withdraw = function (money) {
@@ -29,7 +24,6 @@
     balance -= money;
     transactionHandler.transaction.process(balance, money, "withdraw");
     history.push(transactionHandler.transaction.formatter.formatted);
-    return balance;
   };
 
   bankAccount.prototype.printTransactions = function() {
