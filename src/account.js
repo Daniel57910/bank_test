@@ -5,23 +5,31 @@
   printer = printer.printer;
 
   let bankAccount = function () {
-    totalMoney = 0;
+    balance = 0;
     history = [];
   };
 
+  bankAccount.prototype.balance = function() {
+    return balance;
+  };
+
+  bankAccount.prototype.history = function() {
+    return history;
+  };
+
   bankAccount.prototype.deposit = function (money) {
-    totalMoney += money;
-    transactionHandler.transaction.process(totalMoney, money, "deposit");
+    balance += money;
+    transactionHandler.transaction.process(balance, money, "deposit");
     history.push(transactionHandler.transaction.formatter.formatted);
-    return totalMoney;
+    return balance;
   };
 
   bankAccount.prototype.withdraw = function (money) {
-    isValidWithdrawal(totalMoney, money);
-    totalMoney -= money;
-    transactionHandler.transaction.process(totalMoney, money, "withdraw");
+    isValidWithdrawal(balance, money);
+    balance -= money;
+    transactionHandler.transaction.process(balance, money, "withdraw");
     history.push(transactionHandler.transaction.formatter.formatted);
-    return totalMoney;
+    return balance;
   };
 
   bankAccount.prototype.printTransactions = function() {
