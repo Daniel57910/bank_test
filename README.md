@@ -44,6 +44,6 @@ acc.printTransactions()
 
 The first line will install all the dependencies for running the application both development and test environments. To run the application tests, from the root of the project run npm run test.
 
-**Example Application**
+**Example Application**\
 ![Sample Application](./example_bank_test.png?raw=true "Title")
 
