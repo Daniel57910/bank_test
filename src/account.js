@@ -10,7 +10,6 @@
   };
 
   bankAccount.prototype.deposit = function (money) {
-    console.log("HELLO");
     this.totalMoney += money;
     transaction.code.process(this.totalMoney, money, "deposit");
     this.history.push(transaction.code.formatter.formatted);
