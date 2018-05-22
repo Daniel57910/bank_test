@@ -5,25 +5,27 @@
   printer = printer.printer;
 
   let bankAccount = function () {
-    this.totalMoney = 0;
-    this.history = [];
+    totalMoney = 0;
+    history = [];
   };
 
   bankAccount.prototype.deposit = function (money) {
-    this.totalMoney += money;
-    transactionHandler.transaction.process(this.totalMoney, money, "deposit");
-    this.history.push(transactionHandler.transaction.formatter.formatted);
+    totalMoney += money;
+    transactionHandler.transaction.process(totalMoney, money, "deposit");
+    history.push(transactionHandler.transaction.formatter.formatted);
+    return totalMoney;
   };
 
   bankAccount.prototype.withdraw = function (money) {
-    isValidWithdrawal(this.totalMoney, money);
-    this.totalMoney -= money;
-    transactionHandler.transaction.process(this.totalMoney, money, "withdraw");
-    this.history.push(transactionHandler.transaction.formatter.formatted);
+    isValidWithdrawal(totalMoney, money);
+    totalMoney -= money;
+    transactionHandler.transaction.process(totalMoney, money, "withdraw");
+    history.push(transactionHandler.transaction.formatter.formatted);
+    return totalMoney;
   };
 
   bankAccount.prototype.printTransactions = function() {
-    printBankStatement(this.history);
+    printBankStatement(history);
   };
 
   function printBankStatement(history) {
@@ -32,7 +34,7 @@
 
   function isValidWithdrawal(currentBalance, withdraw) {
      if (currentBalance - withdraw < 0) {
-       throw ("Illegitemate transaction. maximum withdrawal is " + currentBalance);
+       throw ("Illegitimate transaction. maximum withdrawal is " + currentBalance);
      }
   }
 
@@ -40,3 +42,11 @@
 
 
 })(this);
+
+function deposit(amount) {
+   money += addMoney(amount);
+}
+
+function addMoney(money) {
+    return money;
+}
