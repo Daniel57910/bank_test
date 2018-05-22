@@ -32,9 +32,7 @@ describe('Bank Account', function() {
 
      it("should raise an error method if balance - transaction < 0", function() {
         bankAccount.deposit(100);
-        bankAccount.withdraw(200);
         expect(() => bankAccount.withdraw(200)).to.throw("Illegitimate transaction. maximum withdrawal is 100");
-    
      });
   });
 
@@ -42,19 +40,3 @@ describe('Bank Account', function() {
 
 
 
-/*
-    it("Adds a successful transaction to the array", function() {
-      bankAccount.deposit(100);
-      assert.equal(bankAccount.history[0], date + " || 100.00 || || 100.00");
-    });
-  });
-
-  
-    it("Raises an error if the user has insufficient funds for a withdrawal", function() {
-      bankAccount.deposit(100);
-      expect(() => bankAccount.withdraw(200)).to.throw("Illegitemate transaction. maximum withdrawal is 100");
-    });
-  });
-
-});
-*/

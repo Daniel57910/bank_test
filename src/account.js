@@ -1,5 +1,3 @@
-(function (exports) {
-
   let transactionHandler = require('./transaction.js');
   let printer = require('./printer.js');
   printer = printer.printer;
@@ -15,20 +13,24 @@
 
   bankAccount.prototype.deposit = function (money) {
     balance += money;
-    transactionHandler.transaction.process(balance, money, "deposit");
-    history.push(transactionHandler.transaction.formatter.formatted);
+    manageTransaction(balance, money, "deposit");
   };
 
   bankAccount.prototype.withdraw = function (money) {
     isValidWithdrawal(balance, money);
     balance -= money;
-    transactionHandler.transaction.process(balance, money, "withdraw");
-    history.push(transactionHandler.transaction.formatter.formatted);
+    manageTransaction(balance, money, "withdrawal");
   };
 
   bankAccount.prototype.printTransactions = function() {
     printBankStatement(history);
   };
+
+  function manageTransaction(balance, transaction, type) {
+    console.log(type);
+    transactionHandler.transaction.process(balance, transaction, type);
+    history.push(transactionHandler.transaction.formatter.formatted);
+  }
 
   function printBankStatement(history) {
     printer.printStatement(history);
@@ -42,13 +44,3 @@
 
   exports.bankAccount = bankAccount;
 
-
-})(this);
-
-function deposit(amount) {
-   money += addMoney(amount);
-}
-
-function addMoney(money) {
-    return money;
-}
