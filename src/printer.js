@@ -4,8 +4,6 @@
 
   printer.prototype.printStatement = function(history) {
     header = "date || credit || debit || balance";
-    console.log(header);
-    printHistory(history);
   };
 
   function printHistory(history) {

@@ -1,18 +1,21 @@
-(function(exports) {
+
 
   let formatter = function() {
-    this.formatted = null;
   };
 
   formatter.prototype.format = function (date, type, transaction, balance) {
+    console.log(date);
+    console.log(type);
+    console.log(transaction);
+    console.log(balance);
     if (type === "deposit") {
-      this.formatted = date + " || " + transaction  + " || || " + balance;
+      return date + " || " + transaction  + " || || " + balance;
     }
     else {
-      this.formatted = date + " || || " + transaction + " || " + balance;
+      return date + " || || " + transaction + " || " + balance;
     }
   };
 
-  exports.formatter = formatter;
+  exports.testFormatter = formatter;
+  exports.formatter = new formatter();
   
-})(this);

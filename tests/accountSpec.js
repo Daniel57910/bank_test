@@ -1,13 +1,11 @@
 const assert = require('assert');
 const expect = require('chai').expect;
-const dateFormat = require('dateformat');
-const date = dateFormat(new Date(), "dd/mm/yyyy");
 const bankAccounts = require('../src/account.js');
 
 describe('Bank Account', function() {
   
   beforeEach(function() {
-    bankAccount = new bankAccounts.bankAccount();
+    bankAccount = new bankAccounts.testBankAccount();
   });
 
   describe("Bank Account on Initialization of App", function() {

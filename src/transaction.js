@@ -1,17 +1,15 @@
-(function(exports) {
+
   const dateFormat = require('dateformat');
-  const formatter = require('./formatter.js');
+  let formatter = require('./formatter.js');
+  formatter = formatter.formatter;
 
   let transaction = function() {
-    this.date = dateFormat(new Date(), "dd/mm/yyyy");
-    this.formatter = new formatter.formatter();
-    this.lastTransaction = null;
+    date = dateFormat(new Date(), "dd/mm/yyyy");
   };
 
   transaction.prototype.process = function(balance, transaction, type) {
-    this.lastTransaction = this.formatter.format(this.date, type, Number(transaction).toFixed(2), Number(balance).toFixed(2)); 
+    return (formatter.format(date, type, Number(transaction).toFixed(2), Number(balance).toFixed(2))); 
   };
 
+  exports.testTransaction = transaction();
   exports.transaction = new transaction();
-
-})(this);

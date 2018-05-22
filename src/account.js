@@ -27,9 +27,7 @@
   };
 
   function manageTransaction(balance, transaction, type) {
-    console.log(type);
-    transactionHandler.transaction.process(balance, transaction, type);
-    history.push(transactionHandler.transaction.formatter.formatted);
+    history.push(transactionHandler.transaction.process(balance, transaction, type));
   }
 
   function printBankStatement(history) {
@@ -42,5 +40,6 @@
      }
   }
 
-  exports.bankAccount = bankAccount;
+  exports.testBankAccount = bankAccount;
+  exports.bankAccount = new bankAccount();
 
