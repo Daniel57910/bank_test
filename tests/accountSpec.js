@@ -1,4 +1,5 @@
 const assert = require('assert');
+const expect = require('chai').expect;
 const bankAccounts = require('../src/account.js');
 const dateFormat = require('dateformat');
 const date = dateFormat(new Date(), "dd/mm/yyyy");
@@ -41,6 +42,11 @@ describe('Bank Account', function() {
       bankAccount.deposit(100);
       bankAccount.withdraw(50);
       assert.equal(bankAccount.totalMoney, 50);
+    });
+
+    it("Raises an error if the user has insufficient funds for a withdrawal", function() {
+      bankAccount.deposit(100);
+      expect(() => bankAccount.withdraw(200)).to.throw("Illegitemate transaction. maximum withdrawal is 100");
     });
   });
 

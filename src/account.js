@@ -16,6 +16,7 @@
   };
 
   bankAccount.prototype.withdraw = function (money) {
+    isValidWithdrawal(this.totalMoney, money);
     this.totalMoney -= money;
     transactionHandler.transaction.process(this.totalMoney, money, "withdraw");
     this.history.push(transactionHandler.transaction.formatter.formatted);
@@ -27,6 +28,12 @@
 
   function printBankStatement(history) {
     printer.printStatement(history);
+  }
+
+  function isValidWithdrawal(currentBalance, withdraw) {
+     if (currentBalance - withdraw < 0) {
+       throw ("Illegitemate transaction. maximum withdrawal is " + currentBalance);
+     }
   }
 
   exports.bankAccount = bankAccount;
