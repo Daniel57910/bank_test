@@ -5,11 +5,11 @@
 
   printer.prototype.printStatement = function (history) {
     history.reverse().unshift(header);
-    printHistory(history);
+    printHistory(history.join("\n"));
   };
 
   function printHistory(history) {
-    console.log(history.join("\n"));
+    console.log(history);
   }
   exports.printer = new printer();
   exports.testPrinter = printer;
