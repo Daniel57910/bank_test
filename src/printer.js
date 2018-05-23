@@ -1,6 +1,5 @@
-(function(exports) {
 
-  let printer = function() {};
+let printer = function() {};
 
   printer.prototype.printStatement = function(history) {
     header = "date || credit || debit || balance";
@@ -16,4 +15,3 @@
   exports.printer = new printer();
   exports.testPrinter = printer;
 
-})(this);
