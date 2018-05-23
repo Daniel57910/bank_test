@@ -11,5 +11,5 @@
     return (formatter.format(date, type, Number(transaction).toFixed(2), Number(balance).toFixed(2))); 
   };
 
-  exports.testTransaction = transaction();
+  exports.testTransaction = transaction;
   exports.transaction = new transaction();

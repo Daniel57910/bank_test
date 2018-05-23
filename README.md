@@ -33,6 +33,10 @@ The application is wrote using Node.JS and can be executed from the command line
 
 The project is tested using Jasmine. The majority of tests are unit tests on the individual functions/classes to ensure they generate the correct output. For the printer class, to represent the reverse printing of transactions the javascript console is stubbed. Instead of printing, transactions are shovelled into an array, and the values in the array are tested.
 
+An integration test is also passed to check the relationship between the bank account and transactions. In the integration test 100 is passed into the bank account. The parameters that the transaction class then requires are stubbed, and checked to ensure they were called by the deposit method.
+
+**How To Run The Project **
+
 npm install
 node
 let acc = require("./src/account.js")\
@@ -45,7 +49,7 @@ acc.deposit(800)\
 acc.balance()\
 acc.printTransactions()
 
-The first line will install all the dependencies for running the application both development and test environments. To run the application tests, from the root of the project run npm run test.
+The first line will install all the dependencies for running the application both development and test environments. To run the application tests, from the root of the project type jasmine into the command line then click enter.
 
 **Example Application**\
 ![Sample Application](./example_bank_test.png?raw=true "Title")
