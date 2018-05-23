@@ -1,13 +1,8 @@
 
-
   let formatter = function() {
   };
 
   formatter.prototype.format = function (date, type, transaction, balance) {
-    console.log(date);
-    console.log(type);
-    console.log(transaction);
-    console.log(balance);
     if (type === "deposit") {
       return date + " || " + transaction  + " || || " + balance;
     }
