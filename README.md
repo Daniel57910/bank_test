@@ -29,17 +29,20 @@ When the user wants to view their transaction history the **printer class** is c
 
 The application is wrote using Node.JS and can be executed from the command line. To execute a production version of the application ensure you have Node.JS installed. Then from within the application forder, you can begin the application by writing the following commands.
 
+**Project Testing**
+
+The project is tested using Jasmine. The majority of tests are unit tests on the individual functions/classes to ensure they generate the correct output. For the printer class, to represent the reverse printing of transactions the javascript console is stubbed. Instead of printing, transactions are shovelled into an array, and the values in the array are tested.
+
 npm install
 node
 let acc = require("./src/account.js")\
-acc = new acc.bankAccount()\
+acc = acc.bankAccount\
 acc.deposit(1000)\
 acc.deposit(699)\
 acc.withdraw(500)\
 acc.withdraw(200)\
 acc.deposit(800)\
-acc.totalMoney\
-acc.history\
+acc.balance()\
 acc.printTransactions()
 
 The first line will install all the dependencies for running the application both development and test environments. To run the application tests, from the root of the project run npm run test.
@@ -47,7 +50,6 @@ The first line will install all the dependencies for running the application bot
 **Example Application**\
 ![Sample Application](./example_bank_test.png?raw=true "Title")
 
-let formatter = require("./src/formatter.js")
 
 
 
