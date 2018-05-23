@@ -54,6 +54,10 @@ The first line will install all the dependencies for running the application bot
 **Example Application**\
 ![Sample Application](./example_bank_test.png?raw=true "Title")
 
+prettyHistory = history.reverse.
+history.append(header);
+history.join("\n");
+console.log(history);
 
 
 

@@ -1,17 +1,15 @@
 
-let printer = function() {};
-
-  printer.prototype.printStatement = function(history) {
-    header = "date || credit || debit || balance";
-    printHistory(header, history);
+  let printer = function() {
+     header = "date || credit || debit || balance";
   };
 
-  function printHistory(header, history) {
-    console.log(header);
-    for (i = history.length - 1; i >= 0; i--) {
-      console.log(history[i]);
-    }
+  printer.prototype.printStatement = function (history) {
+    history.reverse().unshift(header);
+    printHistory(history);
+  };
+
+  function printHistory(history) {
+    console.log(history.join("\n"));
   }
   exports.printer = new printer();
   exports.testPrinter = printer;
-
