@@ -43,10 +43,9 @@
      if (currentBalance - withdraw < 0) {
        throw ("Illegitimate transaction. maximum withdrawal is " + currentBalance);
      }
+       
+     return true;
 
-     else {
-       return true;
-     }
   }
 
   exports.testBankAccount = bankAccount;

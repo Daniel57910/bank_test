@@ -3,10 +3,9 @@
      header = "date || credit || debit || balance";
   };
 
-  printer.prototype.printStatement = function (testHistory) {
-    copiedHistory = testHistory;
-    copiedHistory.reverse().unshift(header);
-    printHistory(copiedHistory.join("\n"));
+  printer.prototype.printStatement = function (history) {
+    history.reverse().unshift(header);
+    printHistory(history.join("\n"));
   };
 
   function printHistory(testHistory) {
