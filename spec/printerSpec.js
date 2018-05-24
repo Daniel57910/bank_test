@@ -26,7 +26,6 @@ describe('Printer', function () {
       testPrinter.printStatement(testHistory);
       expect(testTransaction).toEqual(testHistory.join("\n"));
     });
-
   });
 
 });

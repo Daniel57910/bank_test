@@ -11,27 +11,32 @@
     return balance;
   };
 
+  bankAccount.prototype.history = function() {
+    return history;
+  };
+
   bankAccount.prototype.deposit = function (money) {
     balance += money;
     manageTransaction(balance, money, "deposit");
   };
 
   bankAccount.prototype.withdraw = function (money) {
-    isValidWithdrawal(balance, money);
-    balance -= money;
-    manageTransaction(balance, money, "withdrawal");
+    if (isValidWithdrawal(balance, money)) {
+      balance -= money;
+      manageTransaction(balance, money, "withdrawal");
+    }
   };
 
   bankAccount.prototype.printTransactions = function() {
-    printBankStatement(history);
+    printBankStatement(history.slice(0));
   };
 
   function manageTransaction(balance, transaction, type) {
     history.push(transactionHandler.transaction.process(balance, transaction, type));
   }
 
-  function printBankStatement(history) {
-    printer.printStatement(history);
+  function printBankStatement(printedHistory) {
+    printer.printStatement(printedHistory);
   }
 
   function isValidWithdrawal(currentBalance, withdraw) {
