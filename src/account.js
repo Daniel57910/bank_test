@@ -21,7 +21,7 @@
   };
 
   bankAccount.prototype.withdraw = function (money) {
-    if (isValidWithdrawal(balance, money)) {
+    if (isValidWithdrawal(balance, money) === true) {
       balance -= money;
       manageTransaction(balance, money, "withdrawal");
     }
@@ -42,6 +42,10 @@
   function isValidWithdrawal(currentBalance, withdraw) {
      if (currentBalance - withdraw < 0) {
        throw ("Illegitimate transaction. maximum withdrawal is " + currentBalance);
+     }
+
+     else {
+       return true;
      }
   }
 
