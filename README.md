@@ -29,7 +29,7 @@ When the user wants to view their transaction history the **printer class** is c
 
 The application is wrote using Node.JS and can be executed from the command line. To execute a production version of the application ensure you have Node.JS installed. Then from within the application forder, you can begin the application by writing the following commands.
 
-npm install
+npm install\
 node
 let acc = require("./src/account.js")\
 acc = new acc.bankAccount()\
